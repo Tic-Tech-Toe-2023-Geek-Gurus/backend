@@ -26,29 +26,31 @@ const PORT = process.env.PORT || 8000;
 
 app.use('/api/users', require('./routes/userRoute'));
 
-app.post("/generate-image", (req, res) => {
+// app.post("/generate-image", (req, res) => {
 
-  const pythonProcess = child_process.spawn("python", ["audio_to_image.py", "../audio.wav"]);
+//   const pythonProcess = child_process.spawn("python", ["audio_to_image.py", "../audio.wav"]);
 
-    pythonProcess.stderr.on('data', (data) => {
-      console.error(`Error from Python script: ${data}`);
-    });
+//     pythonProcess.stderr.on('data', (data) => {
+//       console.error(Error from Python script: ${data});
+//     });
 
-    // Handle Python script exit
-    pythonProcess.on('close', (code) => {
-      if (code === 0) {
-        console.log('Python script exited successfully.');
+//     // Handle Python script exit
+//     pythonProcess.on('close', (code) => {
+//       if (code === 0) {
+//         console.log('Python script exited successfully.');
 
-        res.status(200).json({ message: 'Image generated successfully' });
+//         res.status(200).json({ message: 'Image generated successfully' });
 
-      } else {
-        console.error(`Python script exited with code ${code}.`);
-        res.status(500).send('Internal Server Error');
-      }
-    });
-  });
+//       } else {
+//         console.error(Python script exited with code ${code}.);
+//         res.status(500).send('Internal Server Error');
+//       }
+//     });
+// });
+
+
 
 app.use(errorHandler);
 app.listen(PORT, () => {
-  console.log(`Server running on port http://localhost:${PORT}`);
+  console.log(Server running on port http://localhost:${PORT});
 });

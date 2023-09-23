@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
         trim: true
     },
     vector: {
-        type: [String],
+        type: [Number],
         required: true,
         unique: true,
         
