@@ -52,5 +52,5 @@ app.use('/api/users', require('./routes/userRoute'));
 
 app.use(errorHandler);
 app.listen(PORT, () => {
-  console.log(Server running on port http://localhost:${PORT});
+  console.log(`Server running on port http://localhost:${PORT}`);
 });
